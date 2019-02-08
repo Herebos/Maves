@@ -27,7 +27,7 @@ class IndexController extends AbstractController
 
     /**
      * Matches /recherche exactly
-     * @Route("/recherche")
+     * @Route("/recherche", name="app_recherche")
      */
     public function recherche()
     {

@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Login{% endblock %}
+
+{% block body %}
+    {% for message in app.flashes('success') %}
+        <div class="text-center" style="margin-top: 1%">
+            <div class="alert alert-success" role="alert" style="width: 35% ;margin: auto;">
+                {{ message }}
+            </div>
+        </div>
+    {% endfor %}
+    <h1>Log into MAVES !</h1>
+
+    <form method="post" class="formSignIn">
+        {% if error %}
+            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        {% endif %}
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" value="{{ last_username }}" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" class="form-control" />
+        </div>
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+        <div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" name="_remember_me"> Se souvenir de moi
+            </label>
+        </div>
+        <div class="text-center">
+        {#Redirect user to define path#}
+            {#<input type="hidden" name="_target_path" value="/profil" />#}
+            <button type="submit" class="btnBlock btn btn-lg btn-success">LOGIN</button>
+        </div>
+    </form>
+
+
+
+{% endblock %}

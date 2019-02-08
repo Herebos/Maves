@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+{% block title %}Profil{% endblock %}
+{% block body %}
+    <div class="card bg-light" style="width: 25rem; margin: auto; margin-top: 1%;">
+        <img src="https://robohash.org/{{ app.user.mail }}" class="card-img-top rounded-circle" alt="...">
+        <div class="card-body text-center">
+            <h5 class="card-title">Bonjour <strong>{{ app.user.username }}</strong></h5>
+            <p class="card-text">Mail: {{ app.user.mail }}</p>
+            <p class="card-text">Instrument: {{ app.user.instrument }}</p>
+            <p class="card-text">Style: {{ app.user.style }}</p>
+
+            <p class="card-text">Groupe:
+                {%  if app.user.groupe == 0 %}
+                Non
+                {% else %}
+                Oui
+                {% endif %}
+            </p>
+
+            <a class="updateLink" href="update.php" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="Changer les informations de votre profil"><i id="editPr" class="far fa-edit"></i></a>
+        </div>
+    </div>
+
+
+
+
+
+    <footer>
+        <p>©Conrozier Dimitri</p>
+    </footer>
+{% endblock %}

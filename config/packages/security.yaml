@@ -1,0 +1,49 @@
+security:
+    encoders:
+        App\Entity\User:
+            algorithm: bcrypt #Can use 'cost' option for better security, not needed here
+
+    # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+    providers:
+        # used to reload user from session & other features (e.g. switch_user)
+        app_user_provider:
+            entity:
+                class: App\Entity\User
+                property: username
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        main:
+            anonymous: true
+            guard:
+                authenticators:
+                    - App\Security\LoginFormAuthenticator
+
+            logout:
+                path: app_logout
+                target: app_index
+
+            remember_me:
+                secret: '%kernel.secret%' #built-in parameters to sign data into cookies
+                lifetime: 2592000 #30 days in seconds / default one year
+
+            # activate different ways to authenticate
+#            guard:
+#                authenticator:
+#                    - App\Security\TokenAuthenticator
+
+            # http_basic: true
+            # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
+
+            # form_login: true
+            # https://symfony.com/doc/current/security/form_login_setup.html
+
+    # Easy way to control access for large sections of your site
+    # Note: Only the *first* access control that matches will be used
+    access_control:
+         - { path: ^/admin, roles: ROLE_ADMIN }
+         - { path: ^/profil, roles: ROLE_USER }
+                                # Roles : IS_AUTHENTICATED_ANONYMOUSLY => Everyone can access those pages
+                                #       : IS_AUTHENTICATED_FULLY => Access to logged during THIS session (close browser and pouf, gone) (NOTA BENE : à utiliser pour changer le mpd, pas de changement si pas FULLY authentifier)
+                                #       : IS_AUTHENTICATED_REMEMBERED => Access to logged and "REMEMBER ME" checked (close browser, come back, yay, still here)

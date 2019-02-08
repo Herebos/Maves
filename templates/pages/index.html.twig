@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+    <div class="titreMainPage">
+
+        <h1>MAVES</h1>
+        <h2>Search and Match !</h2>
+        <h2>Forme ton groupe en quelques clics</h2>
+
+
+        {% if is_granted('ROLE_USER') %}
+            <br>
+        <h4>Re-bonjour {{ app.user.username }} !</h4>
+        {% endif %}
+    </div>
+    {#<video autoplay muted loop id="bgVideo">#}
+        {#<source src="../../public/img/bg-site.mp4" type="video/mp4">#}
+    {#</video>#}
+{% endblock %}
