@@ -30,12 +30,11 @@ class SecurityController extends AbstractController
             'error' => $error,
         ]);
     }
-
     /**
      * @Route("/logout", name="app_logout")
      */
     public function logout()
     {
-        //see security.yml for redirect and path
+        //see security.yaml for redirect and path
     }
 }

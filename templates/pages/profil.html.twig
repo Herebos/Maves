@@ -1,6 +1,15 @@
 {% extends 'base.html.twig' %}
 {% block title %}Profil{% endblock %}
 {% block body %}
+
+    {% for message in app.flashes('success') %}
+        <div class="text-center" style="margin-top: 1%">
+            <div class="alert alert-success" role="alert" style="width: 35% ;margin: auto;">
+                {{ message }}
+            </div>
+        </div>
+    {% endfor %}
+
     <div class="card bg-light" style="width: 25rem; margin: auto; margin-top: 1%;">
         <img src="https://robohash.org/{{ app.user.mail }}" class="card-img-top rounded-circle" alt="...">
         <div class="card-body text-center">
@@ -17,11 +26,9 @@
                 {% endif %}
             </p>
 
-            <a class="updateLink" href="update.php" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="Changer les informations de votre profil"><i id="editPr" class="far fa-edit"></i></a>
+            <a id="editPr" class="updateLink" href="{{ path('app_edit') }}" ><i class="far fa-edit"></i></a>
         </div>
     </div>
-
-
 
 
 

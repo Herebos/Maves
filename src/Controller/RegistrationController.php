@@ -19,11 +19,11 @@ class RegistrationController extends AbstractController
      * @return Response
      * @throws \Exception
      */
-    public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder) : Response
+    public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder): Response
     {
         //New user and Form
         $user = new User();
-        $form = $this->createForm(RegistrationFormType::class, $user);
+        $form = $this->createForm(RegistrationFormType::class, $user, array('csrf_protection' => false));
         $form->handleRequest($request);
 
         //$form->isSubmitted()
@@ -53,20 +53,12 @@ class RegistrationController extends AbstractController
                 //Message
                 $this->addFlash('success', 'Inscription réussie ! Connectez-vous !');
 
-                //User Authentification after registration with ApiTokens
-//            return $guardHandler->authenticateUserAndHandleSuccess(
-//                $user,
-//                $request,
-//                $authenticator,
-//                'main'
-//            );
                 return $this->redirectToRoute('app_login');
             }
         }
 
-            return $this->render('registration/register.html.twig', [
-                'registrationForm' => $form->createView(),
-            ]);
-        }
+        return $this->render('registration/register.html.twig', [
+            'registrationForm' => $form->createView(),
+        ]);
     }
-
+}

@@ -15,12 +15,14 @@ use Symfony\Component\Validator\Constraints\Length;
 
 class RegistrationFormType extends AbstractType
 {
+
     /**
      * @param FormBuilderInterface $builder
      * @param array $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+
         //Form Builder displayed in register twig
         $builder
             ->setMethod('POST')

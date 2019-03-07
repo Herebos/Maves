@@ -23,3 +23,11 @@
 npm-debug.log
 yarn-error.log
 ###< symfony/webpack-encore-bundle ###
+
+Maves\node_modules
+Maves\public\img
+Maves\public\build
+Maves\tests
+Maves\translations
+Maves\var
+Maves\vendor

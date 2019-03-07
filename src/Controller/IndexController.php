@@ -8,14 +8,12 @@
 
 namespace App\Controller;
 
-
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class IndexController extends AbstractController
 {
     /**
-     * Matches /*
      * Matches /index
      * @Route("/index", name="app_index")
      */
