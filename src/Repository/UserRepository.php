@@ -41,17 +41,20 @@ class UserRepository extends ServiceEntityRepository implements UserProviderInte
     }
     */
 
-    /*
-    public function findOneBySomeField($value): ?User
+
+    public function findOneById($id)
     {
-        return $this->createQueryBuilder('u')
-            ->andWhere('u.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+        try {
+            return $this->createQueryBuilder('u')
+                ->andWhere('u.id = :id')
+                ->setParameter('id', $id)
+                ->getQuery()
+                ->getOneOrNullResult();
+        } catch (NonUniqueResultException $e) {
+        }
     }
-    */
+
+
 
     public function findOneByUsernameOrEmail($username)
     {
