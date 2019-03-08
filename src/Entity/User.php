@@ -3,6 +3,10 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\JoinColumn;
+use Doctrine\ORM\Mapping\ManyToOne;
+use Doctrine\ORM\Mapping\OneToMany;
+use Doctrine\ORM\Mapping\Table;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Serializer\Annotation\Groups;
@@ -12,6 +16,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  * @UniqueEntity(fields={"username"}, message="Ce nom est déjà pris")
  * @UniqueEntity(fields={"Mail"}, message="Mail déjà utilisez, essayez de vous connecter")
+ * @Table(name="user")
  */
 class User implements UserInterface
 {
@@ -34,6 +39,7 @@ class User implements UserInterface
      */
     private $roles = [];
 
+
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
@@ -52,14 +58,20 @@ class User implements UserInterface
     /**
      * @ORM\Column (type="string", length=35)
      * @Groups("main")
+     * One user has many instrument. This is the inverse side.
+     * @ORM\OneToMany(targetEntity="Instru", mappedBy="user", cascade={"persist"})
+     * @JoinColumn(name="IdInstrument", referencedColumnName="idInstru")
      */
-    private $instrument;
+    private $instruments;
 
     /**
      * @ORM\Column (type="string", length=35)
      * @Groups("main")
+     * One user has many style. This is the inverse side.
+     * @ORM\OneToMany(targetEntity="Style", mappedBy="user", cascade={"persist"})
+     * @JoinColumn(name="IdStyle", referencedColumnName="idStyle")
      */
-    private $style;
+    private $styles;
 
 
     /**
@@ -105,7 +117,7 @@ class User implements UserInterface
     {
         $roles = $this->roles;
         // guarantee every user at least has ROLE_USER
-        $roles[] = 'ROLE_USER';
+        $roles[] = 'ROLE_USER'; //TODO Mod here
 
         return array_unique($roles);
     }
@@ -113,6 +125,7 @@ class User implements UserInterface
     public function setRoles(array $roles): self
     {
         $this->roles = $roles;
+        $roles[] = 'ROLE_USER';
 
         return $this;
     }
@@ -132,19 +145,29 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getInstrument(): string {
-        return (string) $this->instrument;
+    public function getInstruments(): string {
+        return (string) $this->instruments;
     }
-    public function setInstrument(string $instrument) {
-        $this->instrument = $instrument;
+
+    /**
+     * @param $instruments
+     * @return self
+     */
+    public function setInstruments($instruments) {
+        $this->instruments[] = $instruments;
         return $this;
     }
 
-    public function getStyle(): string {
-        return (string) $this->style;
+    public function getStyles(): string {
+        return (string) $this->styles;
     }
-    public function setStyle(string $style) {
-        $this->style = $style;
+
+    /**
+     * @param $styles
+     * @return self
+     */
+    public function setStyles($styles) {
+        $this->styles[] = $styles;
         return $this;
     }
 
@@ -198,5 +221,12 @@ class User implements UserInterface
     public function agreeToTerms()
     {
         $this->agreedTermsAt = new \DateTime();
+    }
+
+    public function setAgreedTermsAt(\DateTimeInterface $agreedTermsAt): self
+    {
+        $this->agreedTermsAt = $agreedTermsAt;
+
+        return $this;
     }
 }

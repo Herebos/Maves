@@ -2,7 +2,12 @@
 
 namespace App\Form;
 
+
+use App\Entity\Instru;
+use App\Entity\Style;
 use App\Entity\User;
+use Doctrine\ORM\Mapping\Entity;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -44,23 +49,32 @@ class RegistrationFormType extends AbstractType
                     ]),
                 ],
             ])
-            ->add('instrument', ChoiceType::class, [
-                'choices' => [
-                    'Guitare' => 'guitare',
-                    'Bass' => 'bass',
-                    'Batterie' => 'batterie',
-                    'Chant' => 'chant',
-                    'Autre' => 'autre',
-                ],
-            ])
-            ->add('style', ChoiceType::class, [
-                'choices' => [
-                    'Metal' => 'metal',
-                    'Jazz' => 'jazz',
-                    'Reggae' => 'reggae',
-                    'Pop' => 'pop',
-                    'Smooth' => 'smooth',
-                ],
+            ->add('instrument', EntityType::class, [
+                'class' => Instru::class,
+                'mapped' => false,
+                'choice_label' => 'instruName',
+                 'multiple' => false,
+                 'expanded' => false,
+                'by_reference' => false,
+
+                //'choices' => $instrument ? $instrument->getInstrument() : [],
+
+//                'Guitare' => 'guitare',
+//                'Bass' => 'bass',
+//                'Batterie' => 'batterie',
+//                'Chant' => 'chant',
+//                'Autre' => 'autre',
+
+            ]) //TODO check null when flushing into DB
+            ->add('style', EntityType::class, [
+                'class' => Style::class,
+                'mapped' => false,
+                'choice_label' => 'styleName',
+                'multiple' => false,
+                'expanded' => false,
+                'by_reference' => false,
+
+
             ])
             ->add('groupe', ChoiceType::class, [
                 'choices' => [
