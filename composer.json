@@ -70,7 +70,7 @@
             "assets:install %PUBLIC_DIR%": "symfony-cmd",
             "security-checker security:check": "script"
         },
-        
+
         "post-update-cmd": [
             "@auto-scripts"
         ]
