@@ -4,50 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/src/Repository/InstruRepository.php" line="38" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa4a8aa7-a7e9-4938-94e8-2bf5b29dea33" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Controller/AdminController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/SearchController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/AddInstruFormType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/AddStyleFormType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/InstruType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/SearchFormType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/pages/adminAddInstru.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/pages/adminAddStyle.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/pages/adminEditUser.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/pages/allUser.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/pages/contact.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/pages/dashboard.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/Dimitri.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/Dimitri.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/EditController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/EditController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/IndexController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/IndexController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ProfilController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ProfilController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/RegistrationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RegistrationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Instru.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Style.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User1.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/EditFormType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/EditFormType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/RegistrationFormType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/RegistrationFormType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20190308115818.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20190308144257.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/InstruRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/InstruRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/StyleRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/StyleRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/UserRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Security/LoginFormAuthenticator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Security/LoginFormAuthenticator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/pages/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/pages/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/pages/profil.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/pages/profil.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/pages/recherche.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/pages/recherche.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/pages/resultat.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/pages/resultat.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/registration/register.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration/register.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/security/delete.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/delete.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/security/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/login.html.twig" afterDir="false" />
-    </list>
+    <list default="true" id="fa4a8aa7-a7e9-4938-94e8-2bf5b29dea33" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,43 +29,7 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/AdminController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1853">
-              <caret line="109" column="5" selection-start-line="109" selection-start-column="5" selection-end-line="109" selection-end-column="5" />
-              <folding>
-                <element signature="e#35#57#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Security/LoginFormAuthenticator.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="348">
-              <caret line="54" column="5" selection-start-line="54" selection-start-column="5" selection-end-line="54" selection-end-column="5" />
-              <folding>
-                <element signature="e#32#66#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/security/login.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <element signature="e#12#26#0#Twig" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -316,23 +237,6 @@
               <item name="Maves" type="b2602c69:ProjectViewProjectNode" />
               <item name="Maves" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Maves" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Maves" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Maves" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Maves" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="build" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Maves" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Maves" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="img" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -415,7 +319,7 @@
       <workItem from="1552942369756" duration="705000" />
       <workItem from="1553070282485" duration="10393000" />
       <workItem from="1553158367778" duration="4746000" />
-      <workItem from="1553242505805" duration="14883000" />
+      <workItem from="1553242505805" duration="15459000" />
     </task>
     <task id="LOCAL-00001" summary="Bootstrap, js css&#10;Controller&#10;Entity&#10;.env &amp; security">
       <created>1549616360035</created>
@@ -456,7 +360,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="308846000" />
+    <option name="totallyTimeSpent" value="309422000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -470,7 +374,7 @@
   <component name="ToolWindowManager">
     <frame x="953" y="0" width="974" height="1047" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.33369803" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.33369803" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Command Line Tools Console" order="0" weight="0.32936078" />
@@ -484,7 +388,7 @@
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="10" sideWeight="0.49946696" weight="0.32936078" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49946696" visible="true" weight="0.33260393" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.49946696" visible="true" weight="0.33260393" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.50053304" side_tool="true" weight="0.32936078" />
       <window_info anchor="bottom" id="Database Console" order="13" weight="0.32936078" />
       <window_info anchor="bottom" id="Messages" order="14" weight="0.32936078" />
@@ -546,27 +450,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="v 1.1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/build/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="37" column="43" lean-forward="true" selection-start-line="37" selection-start-column="43" selection-end-line="37" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/build/app.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="850">
-          <caret line="50" column="18" selection-start-line="50" selection-start-column="18" selection-end-line="50" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/ordi.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4318">
-          <caret line="254" column="1" selection-start-line="254" selection-start-column="1" selection-end-line="254" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -919,9 +802,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Kernel.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/AdminController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1853">
@@ -956,6 +836,9 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Kernel.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/security/login.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -964,6 +847,15 @@
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/.gitignore">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Security/TokenAuthenticator.file">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/translations/security.fr.yaml">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
 </project>

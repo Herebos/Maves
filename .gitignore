@@ -26,8 +26,10 @@ yarn-error.log
 
 Maves\node_modules
 Maves\public\img
-Maves\public\build
+Maves\assets
 Maves\tests
 Maves\translations
 Maves\var
 Maves\vendor
+Maves\src\Migrations
+Maves\src\Security\TokenAuthenticator.file
