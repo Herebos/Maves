@@ -23,23 +23,4 @@ class IndexController extends AbstractController
     }
 
 
-    /**
-     * Matches /recherche exactly
-     * @Route("/recherche", name="app_recherche")
-     */
-    public function recherche()
-    {
-        return $this->render('pages/recherche.html.twig');
-    }
-
-    /**
-     * Matches /resultat exactly
-     * @Route("/resultat")
-     */
-    public function resultat()
-    {
-        return $this->render('pages/resultat.html.twig');
-    }
-
-
 }

@@ -4,8 +4,6 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\JoinColumn;
-use Doctrine\ORM\Mapping\ManyToOne;
-use Doctrine\ORM\Mapping\OneToMany;
 use Doctrine\ORM\Mapping\Table;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -15,7 +13,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  * @UniqueEntity(fields={"username"}, message="Ce nom est déjà pris")
- * @UniqueEntity(fields={"Mail"}, message="Mail déjà utilisez, essayez de vous connecter")
+ * @UniqueEntity(fields={"Mail"}, message="Mail déjà utilisez")
  * @Table(name="user")
  */
 class User implements UserInterface
@@ -24,6 +22,7 @@ class User implements UserInterface
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
@@ -36,9 +35,9 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="json")
+     * @Groups("main")
      */
     private $roles = [];
-
 
     /**
      * @var string The hashed password
@@ -56,29 +55,27 @@ class User implements UserInterface
     private $Mail;
 
     /**
-     * @ORM\Column (type="string", length=35)
-     * @Groups("main")
-     * One user has many instrument. This is the inverse side.
-     * @ORM\OneToMany(targetEntity="Instru", mappedBy="user", cascade={"persist"})
-     * @JoinColumn(name="IdInstrument", referencedColumnName="idInstru")
-     */
-    private $instruments;
-
-    /**
-     * @ORM\Column (type="string", length=35)
-     * @Groups("main")
-     * One user has many style. This is the inverse side.
-     * @ORM\OneToMany(targetEntity="Style", mappedBy="user", cascade={"persist"})
-     * @JoinColumn(name="IdStyle", referencedColumnName="idStyle")
-     */
-    private $styles;
-
-
-    /**
      * @ORM\Column (type="boolean", length=1)
-     * @Groups("main")
      */
     private $groupe;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Instru")
+     * @JoinColumn(name="instru_id", referencedColumnName="id")
+     */
+    private $instrument;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Style")
+     * @JoinColumn(name="style_id", referencedColumnName="id")
+     */
+    private $style;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $description;
+
 
 
     /**
@@ -88,7 +85,7 @@ class User implements UserInterface
 
 
 
-    public function getId(): ?int
+    public function getId()
     {
         return $this->id;
     }
@@ -98,7 +95,7 @@ class User implements UserInterface
      *
      * @see UserInterface
      */
-    public function getUsername(): string
+    public function getUsername()
     {
         return (string) $this->username;
     }
@@ -125,7 +122,7 @@ class User implements UserInterface
     public function setRoles(array $roles): self
     {
         $this->roles = $roles;
-        $roles[] = 'ROLE_USER';
+        $roles[] = ['ROLE_USER'];
 
         return $this;
     }
@@ -145,31 +142,6 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getInstruments(): string {
-        return (string) $this->instruments;
-    }
-
-    /**
-     * @param $instruments
-     * @return self
-     */
-    public function setInstruments($instruments) {
-        $this->instruments[] = $instruments;
-        return $this;
-    }
-
-    public function getStyles(): string {
-        return (string) $this->styles;
-    }
-
-    /**
-     * @param $styles
-     * @return self
-     */
-    public function setStyles($styles) {
-        $this->styles[] = $styles;
-        return $this;
-    }
 
     public function getGroupe() {
         return $this->groupe;
@@ -228,5 +200,54 @@ class User implements UserInterface
         $this->agreedTermsAt = $agreedTermsAt;
 
         return $this;
+    }
+
+    /**
+     * @return Instru
+     */
+    public function getInstrument()
+    {
+        return $this->instrument;
+    }
+
+    /**
+     * @param $instrument
+     */
+    public function setInstrument($instrument)
+    {
+        $this->instrument = $instrument;
+    }
+
+
+    /**
+     * @return Style
+     */
+    public function getStyle()
+    {
+        return $this->style;
+    }
+
+    /**
+     * @param $style
+     */
+    public function setStyle($style)
+    {
+        $this->style = $style;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param mixed $description
+     */
+    public function setDescription($description): void
+    {
+        $this->description = $description;
     }
 }

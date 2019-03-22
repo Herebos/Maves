@@ -2,10 +2,7 @@
 
 namespace App\Entity;
 
-
-
 use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\ORM\Mapping\OneToMany;
 use Doctrine\ORM\Mapping\Table;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -19,34 +16,26 @@ class Style
 {
 
     /**
-     * @ORM\ManyToOne(targetEntity="User")
-     */
-    private $users;
-    public function __construct() {
-        $this->users = new ArrayCollection();
-    }
-
-    /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $IdStyle;
+    private $id;
 
     /**
      * @ORM\Column(type="string", unique=true)
-     *
      */
     private $styleName;
 
-
+    private $style;
 
     /**
      * @return mixed
      */
-    public function getIdStyle()
+    public function getId()
     {
-        return $this->IdStyle;
+        return $this->id;
     }
 
 
@@ -57,5 +46,35 @@ class Style
     {
         return $this->styleName;
     }
+
+    /**
+     * @param mixed $styleName
+     */
+    public function setStyleName($styleName)
+    {
+        $this->styleName = $styleName;
+    }
+
+    public function __toString()
+    {
+        return (string) $this->getStyleName();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStyle()
+    {
+        return $this->style;
+    }
+
+    /**
+     * @param mixed $style
+     */
+    public function setStyle($style)
+    {
+        $this->style = $style;
+    }
+
 
 }

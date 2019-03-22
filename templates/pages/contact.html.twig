@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+{% block title %}Contact{% endblock %}
+{% block body %}
+
+    {{ form_start(contactForm, {'method': 'POST', 'attr': {'class': 'formSignIn'} }) }}
+    <div class="form-group">
+        {{ form_row(contactForm.votreMail) }}
+    </div>
+    <div class="form-group">
+        {{ form_row(contactForm.objet) }}
+    </div>
+    <div class="form-group">
+        {{ form_row(contactForm.message) }}
+        <small id="passwordHelpBlock" class="form-text text-muted">
+            N'oubliez pas de signer votre message !
+        </small>
+    </div>
+    <div class="text-center">
+        <input type="submit" class="btnBlock btn-lg btn-success" value="Envoyer">
+        {#{{ form_row(contactForm.envoyer) }}#}
+    </div>
+    {{ form_end(contactForm) }}
+{% endblock %}

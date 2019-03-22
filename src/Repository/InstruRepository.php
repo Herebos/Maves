@@ -20,12 +20,12 @@ class InstruRepository extends ServiceEntityRepository
         parent::__construct($registry, Instru::class);
     }
 
-    public function findOneById($idInstru)
+    public function findOneById($id)
     {
         try {
             return $this->createQueryBuilder('u')
-                ->andWhere('u.IdInstru = :id')
-                ->setParameter('id', $idInstru)
+                ->andWhere('u.id = :id')
+                ->setParameter('id', $id)
                 ->getQuery()
                 ->getOneOrNullResult();
         } catch (NonUniqueResultException $e) {

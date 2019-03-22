@@ -15,18 +15,19 @@
         {{ form_row(registrationForm.password, { 'attr': {'placeholder': "••••••••••"} }) }}
         </div>
     <div class="form-group">
-        {{ form_row(registrationForm.instrument) }}
+        {{ form_row(registrationForm.instruments) }}
     </div>
     <div class="form-group">
-        {{ form_row(registrationForm.style) }}
+        {{ form_row(registrationForm.styles) }}
     </div>
     <div class="form-group">
         {{ form_row(registrationForm.groupe) }}
     </div>
-    {{ form_rest(registrationForm) }}
+    {{ form_row(registrationForm.agreeTerms) }}
 
 <div class="text-center">
-    <button type="submit" class="btnBlock btn-lg btn-success" value="S'inscrire">Inscription</button>
+    {{ form_rest(registrationForm) }}
+    {#<button type="submit" class="btnBlock btn-lg btn-success" value="S'inscrire">Inscription</button>#}
 </div>
     {{ form_end(registrationForm) }}
 

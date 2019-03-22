@@ -6,12 +6,12 @@ namespace App\Form;
 use App\Entity\Instru;
 use App\Entity\Style;
 use App\Entity\User;
-use Doctrine\ORM\Mapping\Entity;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\IsTrue;
@@ -49,31 +49,25 @@ class RegistrationFormType extends AbstractType
                     ]),
                 ],
             ])
-            ->add('instrument', EntityType::class, [
+            ->add('instruments', EntityType::class, [
                 'class' => Instru::class,
-                'mapped' => false,
                 'choice_label' => 'instruName',
-                 'multiple' => false,
-                 'expanded' => false,
-                'by_reference' => false,
-
-                //'choices' => $instrument ? $instrument->getInstrument() : [],
-
-//                'Guitare' => 'guitare',
-//                'Bass' => 'bass',
-//                'Batterie' => 'batterie',
-//                'Chant' => 'chant',
-//                'Autre' => 'autre',
-
-            ]) //TODO check null when flushing into DB
-            ->add('style', EntityType::class, [
-                'class' => Style::class,
                 'mapped' => false,
-                'choice_label' => 'styleName',
                 'multiple' => false,
                 'expanded' => false,
-                'by_reference' => false,
+                //  'empty_data' => '',
+                //'by_reference' => false,
 
+
+            ]) //TODO check null when flushing into joinTable DB
+            ->add('styles', EntityType::class, [
+                'class' => Style::class,
+                'choice_label' => 'styleName',
+                'mapped' => false,
+                'multiple' => false,
+                'expanded' => false,
+                'empty_data' => '',
+                //'by_reference' => false,
 
             ])
             ->add('groupe', ChoiceType::class, [
@@ -94,7 +88,7 @@ class RegistrationFormType extends AbstractType
             ])
 
             //Child for submit button
-            //->add('Inscription', SubmitType::class)
+            ->add('Inscription', SubmitType::class)
         ;
     }
 

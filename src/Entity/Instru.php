@@ -2,9 +2,6 @@
 
 namespace App\Entity;
 
-
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\ORM\Mapping\ManyToMany;
 use Doctrine\ORM\Mapping\Table;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -17,20 +14,14 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Instru
 {
-    /**
-     * @ORM\ManyToOne(targetEntity="User")
-     */
-    private $users;
-    public function __construct() {
-        $this->users = new ArrayCollection();
-    }
 
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $IdInstru;
+    private $id;
 
     /**
      * @ORM\Column(type="string", unique=true)
@@ -38,14 +29,14 @@ class Instru
      */
     private $instruName;
 
-
+    private $instrument;
 
     /**
      * @return mixed
      */
-    public function getIdInstru()
+    public function getId()
     {
-        return $this->IdInstru;
+        return $this->id;
     }
 
 
@@ -59,10 +50,34 @@ class Instru
 
     /**
      * @param mixed $instruName
+     * @return Instru
      */
     public function setInstruName($instruName)
     {
         $this->instruName = $instruName;
+        return $this;
+    }
+
+    public function __toString()
+    {
+        return (string) $this->getInstruName();
+//        return (string) $this->getStyle();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getInstrument()
+    {
+        return $this->instrument;
+    }
+
+    /**
+     * @param mixed $instrument
+     */
+    public function setInstrument($instrument)
+    {
+        $this->instrument = $instrument;
     }
 
 }

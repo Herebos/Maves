@@ -5,7 +5,12 @@
 {% block body %}
 
     <h1>Delete Account ?</h1>
-    <p>{{ app.user.id }}, {{ app.user.username }}</p>
+    <div class="container">
+        <p>Voulez-vous supprimer le compte de <strong>{{ app.user.username }}</strong> ?</p>
+
+        <a class="btn btn-lg btn-dark" href="{{ path('app_profil') }}">Retour</a>
+        <a class="btn btn-lg btn-danger" href="{{ path('app_delete_confirm', {'id': app.user.id}) }}">Confirmer</a>
+    </div>
 
 
 {% endblock %}

@@ -2,8 +2,11 @@
 
 namespace App\Controller;
 
+use App\Entity\Instru;
+use App\Entity\Style;
 use App\Entity\User;
 use App\Form\RegistrationFormType;
+use App\Repository\InstruRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -40,18 +43,22 @@ class RegistrationController extends AbstractController
                         $form->get('password')->getData()
                     )
                 );
-
-                //get Manager via Doctrine
                 $em = $this->getDoctrine()->getManager();
+
+                $instrument = $form->get('instruments')->getData();
+                $style = $form->get('styles')->getData();
+
+                $user->setInstrument($instrument);
+                $user->setStyle($style);
+                $user->setRoles(['ROLE_USER']);
                 //keep info
                 $em->persist($user);
                 //save in DB
                 $em->flush();
 
-
                 // do anything else you need here, like send an email
                 //Message
-                $this->addFlash('success', 'Inscription réussie ! Connectez-vous !');
+                $this->addFlash('success', 'Inscription réussie ! Connectez-vous ' .$user->getUsername());
 
                 return $this->redirectToRoute('app_login');
             }
@@ -61,4 +68,5 @@ class RegistrationController extends AbstractController
             'registrationForm' => $form->createView(),
         ]);
     }
+
 }

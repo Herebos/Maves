@@ -1,9 +1,9 @@
-{% extends 'base.html.twig' %}
+{% extends 'pages/dashboard.html.twig' %}
 
-{% block title %}Edit Profil{% endblock %}
+{% block title %}Edit User Profil{% endblock %}
 
-{% block body %}
-    <h1>Editez votre profil</h1>
+{% block dashboard %}
+
     {{ form_start(editForm, {'method': 'POST', 'attr': {'class': 'formSignIn'} }) }}
     <div class="form-group">
         {{ form_row(editForm.username) }}
@@ -31,6 +31,7 @@
     </div>
     {{ form_end(editForm) }}
 
+    <a class="btn btn-lg btn-dark" href="{{ path('app_admin_dashboard_user') }}">Retour</a>
 
 
 

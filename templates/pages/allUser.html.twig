@@ -1,0 +1,53 @@
+{% extends 'pages/dashboard.html.twig' %}
+{% block title %}DashBoard - Users{% endblock %}
+{% block dashboard %}
+    <div class="insideDash">
+        {% for message in app.flashes('success') %}
+            <div class="text-center" style="margin-top: 1%">
+                <div class="alert alert-success" role="alert" style="width: 35% ;margin: auto;">
+                    {{ message }}
+                </div>
+            </div>
+        {% endfor %}
+
+        <div class="card-deck">
+            {% for user in users %}
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Username : {{ user.username }}</h5>
+                        <p class="card-text">ID : {{ user.id }}</p>
+                        <p class="card-text">Mail : {{ user.mail }}</p>
+                        <p class="card-text">Instrument : {{ user.instrument }}</p>
+                        <p class="card-text">Style : {{ user.style }}</p>
+                        <p class="card-text">Inscris le : {{ user.agreedTermsAt|date("d/m/Y") }}</p>
+                        <p class="card-text">Groupe :
+                            {% if user.groupe == 0 %}
+                                Non
+                            {% else %}
+                                Oui
+                            {% endif %}
+                        </p>
+                        {% if user.description != null %}
+                            <p class="card-text">Description: {{ user.description }}</p>
+                        {% endif %}
+
+                        <p class="card-footer">
+                            <small class="text-muted">Role : {{ user.roles|json_encode }}</small>
+                        </p>
+                    </div>
+                    <div class="inline text-center">
+                        <a id="editPr" class="updateLink"
+                           href="{{ path('app_admin_dashboard_user_edit',  {'id': user.id}) }}"><i
+                                    class="far fa-edit"></i></a>
+                        <a id="editPr" class="updateLink"
+                           href="{{ path('app_admin_delete_confirm', {'id': user.id}) }}"><i
+                                    class="fas fa-user-times"></i></a>
+                    </div>
+
+
+                </div>
+            {% endfor %}
+        </div>
+
+    </div>
+{% endblock %}

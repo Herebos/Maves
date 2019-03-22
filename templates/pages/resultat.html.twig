@@ -1,11 +1,45 @@
 {% extends 'base.html.twig' %}
-
+{% block title %}Resultat{% endblock %}
 {% block body %}
-    <div class="container-fluid p-2 row justify-content-around" style="margin-top: 3%;">
+    <div class="card-deck">
+        {% for user in users %}
+            {% if user is empty %}
+                <div class="card">
+                    <p class="card-title">Personne ne joue de cet instrument !</p>
+                </div>
+            {% elseif user.id != app.user.id %}
+                {% if user.id != app.user.id %}
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Username : {{ user.username }}</h5>
+                            <p class="card-text">Instrument : {{ user.instrument }}</p>
+                            <p class="card-text">Style : {{ user.style }}</p>
+                            <p class="card-text">Groupe :
+                                {% if user.groupe == 0 %}
+                                    Non
+                                {% else %}
+                                    Oui
+                                {% endif %}
+                            </p>
+                            {% if user.description != null %}
+                                <p class="card-text">Description: {{ app.user.description }}</p>
+                            {% endif %}
 
+                            <p class="card-footer">
+                                <small class="text-muted">Contact</small>
+                            </p>
+                        </div>
+                        <div class="inline text-center">
+                            <a id="editPr" class="updateLink" href="{{ path('app_contact', {'id': user.id}) }}"><i
+                                        class="far fa-envelope"></i></a>
+                        </div>
+                    </div>
+                {% endif %}
 
-        <?php include 'search.php'; trouve(); ?>
-
-
+            {% endif %}
+        {% endfor %}
+    </div>
+    <div class="text-center">
+        <a class="btn btn-lg btn-dark" href="{{ path('app_recherche') }}">Retour</a>
     </div>
 {% endblock %}

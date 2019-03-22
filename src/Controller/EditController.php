@@ -28,18 +28,22 @@ class EditController extends AbstractController
         $form->handleRequest($request);
 
 
-//$form->isSubmitted()
+
         if ($form->isSubmitted() && $form->isValid()) {
-//for test
-//dump($user);
+
 
             $user = $form->getData();
 
-//get Manager via Doctrine
+            $instrument = $form->get('instrument')->getData();
+            $style = $form->get('style')->getData();
+
+            $user->setInstrument($instrument);
+            $user->setStyle($style);
+            //get Manager via Doctrine
             $em = $this->getDoctrine()->getManager();
-//keep info
+            //keep info
             $em->persist($user);
-//save in DB
+            //save in DB
             $em->flush();
 
 

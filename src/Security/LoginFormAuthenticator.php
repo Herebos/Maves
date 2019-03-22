@@ -3,6 +3,7 @@
 namespace App\Security;
 
 use App\Repository\UserRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
@@ -52,8 +53,6 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
 
     public function getCredentials(Request $request)
     {
-        //get username, password and the CsrfToken as credentials
-        //CsrfTokens empêche à des sites tiers de volé les infos de connection
         $credentials = [
             'username' => $request->request->get('username'),
             'password' => $request->request->get('password'),
@@ -97,11 +96,40 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, $providerKey)
     {
         //if a target(page) is stored in the session, go there after login
-        if ($targetPath = $this->getTargetPath($request->getSession(), $providerKey)) {
-            return new  RedirectResponse($targetPath);
+//        if ($targetPath = $this->getTargetPath($request->getSession(), $providerKey)) {
+//            return new  RedirectResponse($targetPath);
+//        }
+
+        $roles = $token->getRoles();
+
+        //Get role in array
+        $rolesTab = array_map(function ($role) {
+            return $role->getRole();
+        }, $roles);
+
+
+        //Check array for role, redirect depending on ROLE_
+        if(in_array('ROLE_ADMIN', $rolesTab, true)) {
+            $url = 'app_admin_dashboard';
         }
+        elseif (in_array('ROLE_USER', $rolesTab, true)) {
+            $url = 'app_profil';
+        } else {
+            $url = "app_index";
+        }
+
+//        if($roles == "ROLE_ADMIN") {
+//            $url = 'app_admin_dashboard';
+//        }
+//        elseif ($roles == "ROLE_USER") {
+//            $url = 'app_profil';
+//        } else {
+//            $url = "app_index";
+//        }
+
         //default fallback after login
-        return new RedirectResponse($this->router->generate('app_profil'));
+        //if ()
+        return new RedirectResponse($this->router->generate($url));
     }
 
 

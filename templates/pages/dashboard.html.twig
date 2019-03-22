@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+{% block title %}DashBoard{% endblock %}
+{% block body %}
+
+<div class="dash">
+    <div class="menuDash">
+        <a class="btn btn-lg btn-dark" href="{{ path('app_admin_dashboard') }}">Dashboard</a>
+    <a class="btn btn-lg btn-dark" href="{{ path('app_admin_dashboard_user') }}">Gérer user</a>
+    <a href="{{ path('app_admin_dashboard_instrument_add') }}" class="btn btn-lg btn-dark">Ajouter Instruments</a>
+    <a href="{{ path('app_admin_dashboard_style_add') }}" class="btn btn-lg btn-dark">Ajouter Styles</a>
+    </div>
+
+    {% block dashboard %}
+        <div class="insideDash rounded">
+            <h4>Bienvenue sur votre tableau de bord {{ user.username }}</h4>
+            <p>Nombre d'inscrit : {{ totalUser }}</p>
+            <p>Nombre d'instruments : {{ totalInstru }}</p>
+            <p>Nombre de styles : {{ totalStyle }}</p>
+        </div>
+    {% endblock %}
+
+</div>
+
+
+{% endblock %}

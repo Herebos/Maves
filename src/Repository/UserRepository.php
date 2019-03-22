@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\NonUniqueResultException;
+use Doctrine\ORM\NoResultException;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
 use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
@@ -40,6 +41,32 @@ class UserRepository extends ServiceEntityRepository implements UserProviderInte
         ;
     }
     */
+    /*
+    public function findByAll($instrument, $style, $groupe)
+    {
+        return $this->createQueryBuilder('u')
+            ->andWhere('u.instrument = :instrument', 'u.style = :style', 'u.groupe = :groupe')
+            ->setParameters(['instrument'=>$instrument, 'style'=>$style, 'groupe'=>$groupe])
+            ->getQuery()
+            ->getArrayResult();
+    }
+    */
+
+    public function findByInstru($instrument): array
+    {
+//            return $this->createQueryBuilder('u')
+//                ->andWhere('u.instrument = :instrument')
+//                ->setParameter('instrument', $instrument)
+//                ->getQuery()
+//                ->getResult();
+        $entityManager = $this->getEntityManager();
+
+        $query = $entityManager->createQuery('SELECT p FROM App\Entity\User p WHERE p.instrument > :instrument')
+            ->setParameter('instrument', $instrument);
+
+        // returns an array of Product objects
+        return $query->execute();
+    }
 
 
     public function findOneById($id)

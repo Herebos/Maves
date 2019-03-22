@@ -15,8 +15,8 @@
         <div class="card-body text-center">
             <h5 class="card-title">Bonjour <strong>{{ app.user.username }}</strong></h5>
             <p class="card-text">Mail: {{ app.user.mail }}</p>
-            <p class="card-text">Instrument: {{ app.user.instrument }}</p>
-            <p class="card-text">Style: {{ app.user.style }}</p>
+            <p class="card-text">Instrument: {{ app.user.instrument.instruName }}</p>
+            <p class="card-text">Style: {{ app.user.style.styleName }}</p>
 
             <p class="card-text">Groupe:
                 {%  if app.user.groupe == 0 %}
@@ -25,6 +25,11 @@
                 Oui
                 {% endif %}
             </p>
+            {% if app.user.description != null %}
+                <p class="card-text">Description: {{ app.user.description }}</p>
+            {% else %}
+                <p class="card-text">Editer votre profil et remplissez votre description ! </p>
+            {% endif %}
 
             <a id="editPr" class="updateLink" href="{{ path('app_edit') }}" ><i class="far fa-edit"></i></a>
             <a id="editPr" class="updateLink" href="{{ path('app_delete', {'id': app.user.id}) }}" ><i class="fas fa-user-times"></i></a>

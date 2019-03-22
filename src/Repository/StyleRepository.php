@@ -20,12 +20,12 @@ class StyleRepository extends ServiceEntityRepository
         parent::__construct($registry, Style::class);
     }
 
-    public function findOneById($idStyle)
+    public function findOneById($id)
     {
         try {
             return $this->createQueryBuilder('u')
-                ->andWhere('u.IdStyle = :id')
-                ->setParameter('id', $idStyle)
+                ->andWhere('u.id = :id')
+                ->setParameter('id', $id)
                 ->getQuery()
                 ->getOneOrNullResult();
         } catch (NonUniqueResultException $e) {

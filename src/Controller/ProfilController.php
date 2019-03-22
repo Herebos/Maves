@@ -36,6 +36,7 @@ class ProfilController extends BaseController
     {   //We can call the getUser() safely because of our @IsGranted(**role**)
         $user = $this->getUser();
 
+
         return $this->json($user, 200, [], [
             'groups' => ['main'],
         ]);

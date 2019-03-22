@@ -1,0 +1,36 @@
+{% extends 'pages/dashboard.html.twig' %}
+{% block title %}DashBoard - Instruments{% endblock %}
+{% block dashboard %}
+    <div class="insideDash">
+    {% for message in app.flashes('success') %}
+        <div class="text-center" style="margin-top: 1%">
+            <div class="alert alert-success" role="alert" style="width: 35% ;margin: auto;">
+                {{ message }}
+                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+        </div>
+    {% endfor %}
+        <div class="list">
+        <ul class="list-group">
+        {% for instrument in instru %}
+                <li class="list-group-item">{{ instrument }} <a id="editPri" class="updateLink" href="{{ path('app_admin_delete_instru', {'id': instrument.id}) }}" ><i class="fas fa-trash-alt"></i></a></li>
+        {% endfor %}
+        </ul>
+        </div>
+
+        {{ form_start(addInstruForm, {'method': 'POST', 'attr': {'class': 'formSignIn'} }) }}
+        <div class="form-group">
+            {{ form_row(addInstruForm.instrument) }}
+        </div>
+        {#<div class="text-center">#}
+            <button type="submit" class="btnBlock btn-lg btn-success" value="Edit">Ajouter</button>
+        {#</div>#}
+        {{ form_end(addInstruForm) }}
+
+
+
+    </div>
+{% endblock %}
