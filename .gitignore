@@ -25,8 +25,6 @@ yarn-error.log
 ###< symfony/webpack-encore-bundle ###
 
 Maves\node_modules
-Maves\public\img
-Maves\assets
 Maves\tests
 Maves\translations
 Maves\var

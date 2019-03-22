@@ -7,7 +7,9 @@
 
 // any CSS you require will output into a single css file (app.css in this case)
 require('../css/app.css');
-require('../images');
+require('../images.js');
+const imagesCtx = require.context('../images', true, /\.(png|jpg|jpeg|gif|ico|svg|webp)$/);
+imagesCtx.keys().forEach(imagesCtx);
 
 // Need jQuery? Install it with "yarn add jquery", then uncomment to require it.
 const $ = require('jquery');

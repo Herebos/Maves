@@ -1,15 +1,9 @@
 var Encore = require('@symfony/webpack-encore');
 
 Encore
-    // directory where compiled assets will be stored
+// directory where compiled assets will be stored
     .setOutputPath('public/build/')
 
-    //referencing img
-    .copyFiles({
-        from: './assets/images',
-        //only copy files matching this
-        pattern: /\.(png|jpg|jpeg|ico)$/
-    })
     // public path used by the web server to access the output path
     .setPublicPath('/build')
     // only needed for CDN's or sub-directory deploy
@@ -17,7 +11,6 @@ Encore
 
     /*
      * ENTRY CONFIG
-     *
      * Add 1 entry for each "page" of your app
      * (including one that's included on every page - e.g. "app")
      *
@@ -25,8 +18,6 @@ Encore
      * and one CSS file (e.g. app.css) if you JavaScript imports CSS.
      */
     .addEntry('app', './assets/js/app.js')
-    .addEntry('app_profil', './assets/js/profil.js')
-    .addEntry('images', './assets/images')
 
     //.addEntry('page2', './assets/js/page2.js')
 
@@ -47,18 +38,33 @@ Encore
     // enables hashed filenames (e.g. app.abc123.css)
     .enableVersioning(Encore.isProduction())
 
-    // enables Sass/SCSS support
-    //.enableSassLoader()
 
-    // uncomment if you use TypeScript
-    //.enableTypeScriptLoader()
 
-    // uncomment if you're having problems with a jQuery plugin
-    .autoProvidejQuery()
+// enables Sass/SCSS support
+//.enableSassLoader()
 
-    // uncomment if you use API Platform Admin (composer req api-admin)
-    //.enableReactPreset()
-    //.addEntry('admin', './assets/js/admin.js')
-;
+// uncomment if you use TypeScript
+//.enableTypeScriptLoader()
+
+// uncomment if you're having problems with a jQuery plugin
+.autoProvidejQuery({
+    $: 'jquery',
+    jQuery: 'jquery'
+});
+
+// uncomment if you use API Platform Admin (composer req api-admin)
+//.enableReactPreset()
+//.addEntry('admin', './assets/js/admin.js')
+if (Encore.isProduction()) {
+    Encore.configureFilenames({
+        images: '[path][name].[hash:8].[ext]',
+        fonts: '[path][name].[hash:8].[ext]'
+    });
+} else {
+    Encore.configureFilenames({
+        images: '[path][name].[ext]',
+        fonts: '[path][name].[ext]'
+    })
+}
 
 module.exports = Encore.getWebpackConfig();
