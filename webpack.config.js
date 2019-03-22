@@ -8,7 +8,7 @@ Encore
     .copyFiles({
         from: './assets/images',
         //only copy files matching this
-        pattern: /\.(png|jpg|jpeg)$/
+        pattern: /\.(png|jpg|jpeg|ico)$/
     })
     // public path used by the web server to access the output path
     .setPublicPath('/build')
@@ -26,6 +26,8 @@ Encore
      */
     .addEntry('app', './assets/js/app.js')
     .addEntry('app_profil', './assets/js/profil.js')
+    .addEntry('images', './assets/images')
+
     //.addEntry('page2', './assets/js/page2.js')
 
     // will require an extra script tag for runtime.js
